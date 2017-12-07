@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>复位通知信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>机号</b></td><td><b>信息发送时间</b></td><td><b>位置</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">autotest</td><td style="vnd.ms-excel.numberformat:@">2014-10-11 11:16:48</td><td style="vnd.ms-excel.numberformat:@">河北省石家庄市裕华区 秦岭大街附近</td> </tr>
+</table>
+</body>
+</html>

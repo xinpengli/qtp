@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>日志信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>机号</b></td><td><b>信息发送时间</b></td><td><b>日志日期</b></td><td><b>位置</b></td><td><b>累计耗油量</b></td><td><b>机器操作时间</b></td><td><b>上物操作时间</b></td><td><b>回转操作时间</b></td><td><b>行走操作时间</b></td><td><b>SP模式操作时间</b></td><td><b>H模式操作时间</b></td><td><b>A模式操作时间</b></td><td><b>B模式操作时间</b></td><td><b>C模式操作时间</b></td><td><b>冷却水温最高温度</b></td><td><b>燃料温最高温度</b></td><td><b>吸气最高温度</b></td><td><b>加压最高温度</b></td><td><b>液压油温最高温度</b></td><td><b>冷却水温最低温度</b></td><td><b>大气压最低压力</b></td><td><b>T＜77℃(水温分布)</b></td><td><b>77℃≦T＜82℃</b></td><td><b>82℃≦T＜97℃</b></td><td><b>97℃≦T＜100℃</b></td><td><b>100℃≦T＜103℃</b></td><td><b>103℃≦T＜105℃</b></td><td><b>105℃≦T</b></td><td><b>R＜30％(负荷率分布)</b></td><td><b>30％≦R＜40％</b></td><td><b>40％≦R＜50％</b></td><td><b>50％≦R＜60％</b></td><td><b>60％≦R＜70％</b></td><td><b>70％≦R＜80％</b></td><td><b>80％≦R</b></td><td><b>油压最高值</b></td><td><b>增压后进气压力最高值</b></td><td><b>燃料温最低温度</b></td><td><b>油压最低值</b></td><td><b>发动机工作小时</b></td><td><b>当天发动机工作小时</b></td><td><b>当天耗油量</b></td><td><b>吸气最低温度</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">autotest</td><td style="vnd.ms-excel.numberformat:@">2014-10-11 11:13:34</td><td style="vnd.ms-excel.numberformat:@">2014-10-10 0:00:00</td><td style="vnd.ms-excel.numberformat:@">河北省石家庄市裕华区 秦岭大街附近</td><td style="vnd.ms-excel.numberformat:@">75</td><td style="vnd.ms-excel.numberformat:@">0.05</td><td style="vnd.ms-excel.numberformat:@">2</td><td style="vnd.ms-excel.numberformat:@">1</td><td style="vnd.ms-excel.numberformat:@">4</td><td style="vnd.ms-excel.numberformat:@">2</td><td style="vnd.ms-excel.numberformat:@">1</td><td style="vnd.ms-excel.numberformat:@">1</td><td style="vnd.ms-excel.numberformat:@">3</td><td style="vnd.ms-excel.numberformat:@">3</td><td style="vnd.ms-excel.numberformat:@">90</td><td style="vnd.ms-excel.numberformat:@">35</td><td style="vnd.ms-excel.numberformat:@">40</td><td style="vnd.ms-excel.numberformat:@">45</td><td style="vnd.ms-excel.numberformat:@">50</td><td style="vnd.ms-excel.numberformat:@">90</td><td style="vnd.ms-excel.numberformat:@">50</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">0.83</td><td style="vnd.ms-excel.numberformat:@">600</td><td style="vnd.ms-excel.numberformat:@">200</td><td style="vnd.ms-excel.numberformat:@">35</td><td style="vnd.ms-excel.numberformat:@">600</td><td style="vnd.ms-excel.numberformat:@">5</td><td style="vnd.ms-excel.numberformat:@">0</td><td style="vnd.ms-excel.numberformat:@">0</td><td style="vnd.ms-excel.numberformat:@">40</td> </tr>
+</table>
+</body>
+</html>

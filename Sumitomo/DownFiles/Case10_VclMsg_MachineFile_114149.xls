@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>所有权设定信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>机号</b></td><td><b>设定时间</b></td><td><b>设定状态</b></td><td><b>设定人员</b></td><td><b>发送状态</b></td><td><b>回复状态</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">autotest2</td><td style="vnd.ms-excel.numberformat:@">2014-10-11 11:41:36</td><td style="vnd.ms-excel.numberformat:@">有所有权</td><td style="vnd.ms-excel.numberformat:@">AutoProdtest</td><td style="vnd.ms-excel.numberformat:@">成功</td><td style="vnd.ms-excel.numberformat:@">成功</td> </tr>
+</table>
+</body>
+</html>

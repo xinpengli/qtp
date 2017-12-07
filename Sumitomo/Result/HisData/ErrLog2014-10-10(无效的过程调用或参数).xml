@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="GB2312"?>
+<ErrMsg><TestCase CaseName="Case10_VclMsg_MachineFile" Description="ErrLog"><VersionNo VersionNo="3.0"><ActionName>Action1 [CleanHistoryData_MachineFile]</ActionName><CurrentRow>1</CurrentRow><RowCount>1</RowCount><ErrCode>5</ErrCode><ErrDescription>无效的过程调用或参数</ErrDescription><ErrSource>Microsoft VBScript 运行时错误</ErrSource><RecordTime>2014-10-10 15:20:47</RecordTime></VersionNo></TestCase></ErrMsg>

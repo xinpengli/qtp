@@ -1,0 +1,87 @@
+'******************************************************************************************
+'增、删、改的DB函数
+'******************************************************************************************
+Function  ExecDB(sql)
+	'定义并获取数据库连接字符串        
+	Dim ConnectionStr 
+	ConnectionStr="Driver={SQL SERVER};SERVER=192.168.30.172\qctest;UID=sa;PWD=TYKJ66tykj;DATABASE=Sumitomo;PORT="
+	'定义ADO连接对象
+	Dim adoConn   
+	'创建数据库连接对象
+	Set adoConn=CreateObject("adodb.Connection") 
+	'打开数据库     
+	adoConn.Open ConnectionStr    
+	'执行Sql                                            
+	adoConn.Execute sql,rowsAffected
+	'将执行sql后影响的行数返回
+	ExecDB=rowsAffected
+	'关闭数据库
+	adoConn.Close
+	'释放数据库对象    
+	Set adoConn=nothing     
+End Function
+
+'******************************************************************************************
+'DB查询函数QueryDBColumn: 查询某列的值
+'******************************************************************************************
+Function QueryDBColumn(sql,colName)
+	'定义数据库连接字符串
+	Dim ConnectionStr 
+	'获取数据库连接字符串
+	ConnectionStr="Driver={SQL SERVER};SERVER=192.168.30.172\qctest;UID=sa;PWD=TYKJ66tykj;DATABASE=Sumitomo;PORT="
+        '定义ADO连接对象
+	Dim adoConn 
+	'创建数据库连接对象
+	Set adoConn=CreateObject("adodb.Connection")
+	'打开数据库
+	adoConn.Open ConnectionStr
+	'执行sql返回对应的结果集
+	Set adoRst=adoConn.Execute(sql)
+	While  adoRst.BOF or adoRst.EOF or IsNull(adoRst.Fields(colName))
+		wait 2
+		Set adoRst=adoConn.Execute(sql)    
+	wend
+	'如果查询结果集为空即BOF或EOF为真，则不进行如下update操作
+	'if(Not(adoRst.BOF or adoRst.EOF))then
+	'获得结果集所查字段的值
+	 QueryDBColumn=adoRst.Fields.Item(colName).Value
+	'end if
+	'关闭数据库
+	adoConn.Close
+	'释放数据库对象
+	Set adoConn=nothing
+End Function
+'******************************************************************************************
+'如下函数QueryDBColumn_Dict,查询数据库多列并返回
+'******************************************************************************************
+Function QueryDBColumn_Dict(sql,colName1,colName2)
+        '定义字典对象，存储返回的多值
+        Set oDict = CreateObject("Scripting.Dictionary") 
+	'定义数据库连接字符串
+	Dim ConnectionStr 
+	'获取数据库连接字符串
+	ConnectionStr="Driver={SQL SERVER};SERVER=192.168.30.172\qctest;UID=sa;PWD=TYKJ66tykj;DATABASE=Sumitomo;PORT="
+        '定义ADO连接对象
+	Dim adoConn 
+	'创建数据库连接对象
+	Set adoConn=CreateObject("adodb.Connection")
+	'打开数据库
+	adoConn.Open ConnectionStr
+	'执行sql返回对应的结果集
+	Set adoRst=adoConn.Execute(sql)
+        While  adoRst.BOF or adoRst.EOF
+	wait 2
+	Set adoRst=adoConn.Execute(sql)    
+        wend
+	'如果查询结果集为空即BOF或EOF为真，则不进行如下update操作
+	if(Not(adoRst.BOF or adoRst.EOF))then
+		'获得结果集所查字段的值
+		oDict(colName1)=adoRst.Fields.Item(colName1).Value
+                oDict(colName2)=adoRst.Fields.Item(colName2).Value
+                set QueryDBColumn_Dict=oDict
+	end if
+	'关闭数据库
+	adoConn.Close
+	'释放数据库对象
+	Set adoConn=nothing
+End Function

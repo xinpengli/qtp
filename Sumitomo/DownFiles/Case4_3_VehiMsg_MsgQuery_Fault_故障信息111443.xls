@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>故障信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>机号</b></td><td><b>发动机型号</b></td><td><b>故障代码</b></td><td><b>故障内容</b></td><td><b>发生时刻</b></td><td><b>解除时刻</b></td><td><b>发动机工作小时</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">autotest</td><td style="vnd.ms-excel.numberformat:@">4JJ1XYSS-02</td><td style="vnd.ms-excel.numberformat:@">0007</td><td style="vnd.ms-excel.numberformat:@">内藏电池交换</td><td style="vnd.ms-excel.numberformat:@">2014-10-11 11:12:55</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@">0</td> </tr>
+</table>
+</body>
+</html>

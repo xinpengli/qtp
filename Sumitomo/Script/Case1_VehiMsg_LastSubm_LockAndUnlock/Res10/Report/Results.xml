@@ -1,0 +1,811 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,ConfName?,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Doc*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC|BPTWrapperTest|Flow|Group) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT ConfName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step*,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,ActionMaintenanceSummary*,NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?,ExtendedInfo? )>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED UserNote CDATA #IMPLIED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT ExtendedInfo ( StepData ) >
+
+<!ATTLIST ExtendedInfo StepType CDATA #REQUIRED>
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="中国标准时间">
+<General productName="QuickTest Professional" productVer="11.00" os="Windows XP" host="TY-GH"><DocLocation><![CDATA[C:\Program Files\HP\QuickTest Professional\Tests\Sumitomo\Script\Case1_VehiMsg_LastSubm_LockAndUnlock]]></DocLocation></General>
+<Doc rID="T1"   productName= "QuickTest Professional"  >
+<DName><![CDATA[Case1_VehiMsg_LastSubm_LockAndUnlock]]></DName>
+<Res><![CDATA[Res10]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table">
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<Action rID="T3">
+<AName><![CDATA[Action1]]></AName>
+<Action rID="T4">
+<AName><![CDATA[Action1 [CleanHistoryData_LockUnlock]]]></AName>
+<Step rID="T5">
+<Obj ><![CDATA[对应设备autotest锁解车历史数据清除完毕]]></Obj>
+<Details ><![CDATA[对应设备autotest锁解车历史数据清除完毕]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:49]]></Time>
+<TimeTick>1407999949</TimeTick>
+<NodeArgs eType="User" icon="5" nRep="8" status="Passed" Source="Action1 [CleanHistoryData_LockUnlock]" SourceLine="22" >
+<Disp><![CDATA[对应设备autotest锁解车历史数据清除完毕]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 15:05:49" eTime="2014-8-14 - 15:05:49" passed="1" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="7" status="Passed" >
+<Disp><![CDATA[Action1 [CleanHistoryData_LockUnlock] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T6">
+<AName><![CDATA[Action1 [Login]]]></AName>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[SystemUtil]]></Obj>
+<Details plainTxt="False" ><![CDATA[SystemUtil]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:50]]></Time>
+<TimeTick>1407999950</TimeTick>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[Run "iexplore.exe",1]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run "iexplore.exe",1]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:50]]></Time>
+<TimeTick>1407999950</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="14" status="Passed" Source="Action1 [Login]" SourceLine="5" >
+<Disp><![CDATA[Run "iexplore.exe",1]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="6" nRep="13" status="Passed" Source="Action1 [Login]" SourceLine="5" >
+<Disp><![CDATA[SystemUtil]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:52]]></Time>
+<TimeTick>1407999952</TimeTick>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[登录页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:52]]></Time>
+<TimeTick>1407999952</TimeTick>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[帐户.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:52]]></Time>
+<TimeTick>1407999952</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="18" Source="Action1 [Login]" SourceLine="7" >
+<Disp><![CDATA[帐户.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[帐户.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["AutoProdtest"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:53]]></Time>
+<TimeTick>1407999953</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="21" Source="Action1 [Login]" SourceLine="12" >
+<Disp><![CDATA[帐户.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[密码.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:53]]></Time>
+<TimeTick>1407999953</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="23" Source="Action1 [Login]" SourceLine="15" >
+<Disp><![CDATA[密码.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[密码.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["123"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:53]]></Time>
+<TimeTick>1407999953</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="26" Source="Action1 [Login]" SourceLine="16" >
+<Disp><![CDATA[密码.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[登录.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:53]]></Time>
+<TimeTick>1407999953</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="28" Source="Action1 [Login]" SourceLine="18" >
+<Disp><![CDATA[登录.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[登录.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:53]]></Time>
+<TimeTick>1407999953</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="31" Source="Action1 [Login]" SourceLine="19" >
+<Disp><![CDATA[登录.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="17" Source="Action1 [Login]" SourceLine="7" >
+<Disp><![CDATA[登录页]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[主页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:54]]></Time>
+<TimeTick>1407999954</TimeTick>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[主页.Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:54]]></Time>
+<TimeTick>1407999954</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="35" Source="Action1 [Login]" SourceLine="22" >
+<Disp><![CDATA[主页.Sync]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="34" Source="Action1 [Login]" SourceLine="22" >
+<Disp><![CDATA[主页]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="16" Source="Action1 [Login]" SourceLine="7" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj ><![CDATA[登录成功]]></Obj>
+<Details ><![CDATA[期望登录用户名: AutoProdtest实际登录用户名是: AutoProdtest]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:54]]></Time>
+<TimeTick>1407999954</TimeTick>
+<NodeArgs eType="User" icon="5" nRep="37" status="Passed" Source="Action1 [Login]" SourceLine="35" >
+<Disp><![CDATA[登录成功]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 15:05:49" eTime="2014-8-14 - 15:05:54" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="10" status="Passed" >
+<Disp><![CDATA[Action1 [Login] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T20">
+<AName><![CDATA[Action1 [IntoVehiInfoFramePage]]]></AName>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[主页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[左导航栏]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[查询中心.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="44" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[查询中心.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T25">
+<Obj plainTxt="False" ><![CDATA[查询中心.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="47" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="4" >
+<Disp><![CDATA[查询中心.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="11" nRep="43" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[左导航栏]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="42" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[主页]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA[主页_查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA[查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA[位置:查询中心.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="51" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="8" >
+<Disp><![CDATA[位置:查询中心.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="11" nRep="50" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="8" >
+<Disp><![CDATA[查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="49" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="8" >
+<Disp><![CDATA[主页_查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="41" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T29">
+<Obj ><![CDATA[进入查询中心页成功]]></Obj>
+<Details ><![CDATA[期望位置:您的位置：>> 查询中心  实际位置:您的位置：>> 查询中心]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:55]]></Time>
+<TimeTick>1407999955</TimeTick>
+<NodeArgs eType="User" icon="5" nRep="53" status="Passed" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="11" >
+<Disp><![CDATA[进入查询中心页成功]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA[主页_查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA[查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA[机号.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="58" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[机号.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj plainTxt="False" ><![CDATA[机号.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["autotest"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="61" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="18" >
+<Disp><![CDATA[机号.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[唯一查询.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="63" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="20" >
+<Disp><![CDATA[唯一查询.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[唯一查询.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="66" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="21" >
+<Disp><![CDATA[唯一查询.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="11" nRep="57" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="56" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[主页_查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T37">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<Step rID="T38">
+<Obj plainTxt="False" ><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebElement<br>innertext=您的位置：&gt&gt 车辆信息<br>html tag=TD<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (180 objects found)&nbsp;</FONT></u><br>
+micclass=WebElement<br>html tag=TD<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=<SPAN class=passed> (Used</SPAN>, 145 matches)</SPAN><br>class=weizhi<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>innertext=您的位置：&gt&gt 车辆信息<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="69" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="25" >
+<Disp><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[您的位置>>车辆信息.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:56]]></Time>
+<TimeTick>1407999956</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="70" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="25" >
+<Disp><![CDATA[您的位置>>车辆信息.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebElement<br>innertext=您的位置：&gt&gt 车辆信息<br>html tag=TD<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (180 objects found)&nbsp;</FONT></u><br>
+micclass=WebElement<br>html tag=TD<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=<SPAN class=passed> (Used</SPAN>, 145 matches)</SPAN><br>class=weizhi<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>innertext=您的位置：&gt&gt 车辆信息<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:57]]></Time>
+<TimeTick>1407999957</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="72" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="26" >
+<Disp><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="68" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="25" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="55" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T41">
+<Obj ><![CDATA[进入车辆信息页成功]]></Obj>
+<Details ><![CDATA[期望位置:您的位置：>> 车辆信息  实际位置:您的位置：>> 车辆信息]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:57]]></Time>
+<TimeTick>1407999957</TimeTick>
+<NodeArgs eType="User" icon="5" nRep="73" status="Passed" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="28" >
+<Disp><![CDATA[进入车辆信息页成功]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 15:05:54" eTime="2014-8-14 - 15:05:57" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="39" status="Passed" >
+<Disp><![CDATA[Action1 [IntoVehiInfoFramePage] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T42">
+<AName><![CDATA[Action1 [QueryLockUnlockSetSourMsgID]]]></AName>
+<Summary sTime="2014-8-14 - 15:05:57" eTime="2014-8-14 - 15:05:57" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="75" >
+<Disp><![CDATA[Action1 [QueryLockUnlockSetSourMsgID] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T43">
+<AName><![CDATA[Action1 [LockSet]]]></AName>
+<Action rID="T44">
+<AName><![CDATA[Action1 [UpdLockSourceSetTime]]]></AName>
+<Summary sTime="2014-8-14 - 15:05:57" eTime="2014-8-14 - 15:05:58" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="78" >
+<Disp><![CDATA[Action1 [UpdLockSourceSetTime] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:58]]></Time>
+<TimeTick>1407999958</TimeTick>
+<Step rID="T46">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:58]]></Time>
+<TimeTick>1407999958</TimeTick>
+<Step rID="T47">
+<Obj plainTxt="False" ><![CDATA[最新提交_.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:58]]></Time>
+<TimeTick>1407999958</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="83" Source="Action1 [LockSet]" SourceLine="7" >
+<Disp><![CDATA[最新提交_.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T48">
+<Obj plainTxt="False" ><![CDATA[最新提交_.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:58]]></Time>
+<TimeTick>1407999958</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="86" Source="Action1 [LockSet]" SourceLine="8" >
+<Disp><![CDATA[最新提交_.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T49">
+<Obj plainTxt="False" ><![CDATA[最新提交_锁/解车设置.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:58]]></Time>
+<TimeTick>1407999958</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="88" Source="Action1 [LockSet]" SourceLine="11" >
+<Disp><![CDATA[最新提交_锁/解车设置.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T50">
+<Obj plainTxt="False" ><![CDATA[最新提交_锁/解车设置.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:58]]></Time>
+<TimeTick>1407999958</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="91" Source="Action1 [LockSet]" SourceLine="12" >
+<Disp><![CDATA[最新提交_锁/解车设置.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="82" Source="Action1 [LockSet]" SourceLine="7" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="81" Source="Action1 [LockSet]" SourceLine="7" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T51">
+<Obj plainTxt="False" ><![CDATA[住友_锁解车设置]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<Step rID="T52">
+<Obj plainTxt="False" ><![CDATA["住友_锁解车设置"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=Browser<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (2 objects found)&nbsp;</FONT></u><br>
+micclass=Browser<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+name=VehicleLock<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>title=VehicleLock<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>openurl=http://192.168.30.173/sumitomo/web/CarManage/VehicleLock.aspx?VclID=6259&VclNo=test<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>opentitle=VehicleLock<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>hasstatusbar=-1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>hasmenubar=0<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>hastoolbar=-1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>openedbytestingtool=0<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>number of tabs=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="93" Source="Action1 [LockSet]" SourceLine="15" >
+<Disp><![CDATA["住友_锁解车设置"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T53">
+<Obj plainTxt="False" ><![CDATA[最新提交_锁解车设置]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<Step rID="T54">
+<Obj plainTxt="False" ><![CDATA[您的位置：>> 车辆信息>>锁/解车设置.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="96" Source="Action1 [LockSet]" SourceLine="15" >
+<Disp><![CDATA[您的位置：>> 车辆信息>>锁/解车设置.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="95" Source="Action1 [LockSet]" SourceLine="15" >
+<Disp><![CDATA[最新提交_锁解车设置]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="92" Source="Action1 [LockSet]" SourceLine="15" >
+<Disp><![CDATA[住友_锁解车设置]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T55">
+<Obj ><![CDATA[进入锁解车设置页成功]]></Obj>
+<Details ><![CDATA[期望值: 您的位置：>> 车辆信息>>锁/解车设置 实际值: 您的位置：>> 车辆信息>>锁/解车设置]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<NodeArgs eType="User" icon="5" nRep="98" status="Passed" Source="Action1 [LockSet]" SourceLine="18" >
+<Disp><![CDATA[进入锁解车设置页成功]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T56">
+<Obj plainTxt="False" ><![CDATA[住友_锁解车设置]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<Step rID="T57">
+<Obj plainTxt="False" ><![CDATA[最新提交_锁解车设置]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<Step rID="T58">
+<Obj plainTxt="False" ><![CDATA[锁解车按钮.Select]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:05:59]]></Time>
+<TimeTick>1407999959</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="103" Source="Action1 [LockSet]" SourceLine="25" >
+<Disp><![CDATA[锁解车按钮.Select]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T59">
+<Obj plainTxt="False" ><![CDATA[总工作时间锁.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="16" nRep="105" Source="Action1 [LockSet]" SourceLine="36" >
+<Disp><![CDATA[总工作时间锁.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T60">
+<Obj plainTxt="False" ><![CDATA[总工作时间锁.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["on"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="16" nRep="108" Source="Action1 [LockSet]" SourceLine="37" >
+<Disp><![CDATA[总工作时间锁.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T61">
+<Obj plainTxt="False" ><![CDATA[总工作时间锁_小时.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="110" Source="Action1 [LockSet]" SourceLine="42" >
+<Disp><![CDATA[总工作时间锁_小时.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T62">
+<Obj plainTxt="False" ><![CDATA[总工作时间锁_小时.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["1"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="113" Source="Action1 [LockSet]" SourceLine="43" >
+<Disp><![CDATA[总工作时间锁_小时.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T63">
+<Obj plainTxt="False" ><![CDATA[账号.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="115" Source="Action1 [LockSet]" SourceLine="110" >
+<Disp><![CDATA[账号.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T64">
+<Obj plainTxt="False" ><![CDATA[账号.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["AutoProdtest"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="118" Source="Action1 [LockSet]" SourceLine="111" >
+<Disp><![CDATA[账号.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T65">
+<Obj plainTxt="False" ><![CDATA[密码.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="120" Source="Action1 [LockSet]" SourceLine="113" >
+<Disp><![CDATA[密码.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T66">
+<Obj plainTxt="False" ><![CDATA[密码.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["123"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="123" Source="Action1 [LockSet]" SourceLine="114" >
+<Disp><![CDATA[密码.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T67">
+<Obj plainTxt="False" ><![CDATA[提交.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="125" Source="Action1 [LockSet]" SourceLine="116" >
+<Disp><![CDATA[提交.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T68">
+<Obj plainTxt="False" ><![CDATA[提交.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:00]]></Time>
+<TimeTick>1407999960</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="128" Source="Action1 [LockSet]" SourceLine="117" >
+<Disp><![CDATA[提交.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="102" Source="Action1 [LockSet]" SourceLine="25" >
+<Disp><![CDATA[最新提交_锁解车设置]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T69">
+<Obj plainTxt="False" ><![CDATA[来自网页的消息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:01]]></Time>
+<TimeTick>1407999961</TimeTick>
+<Step rID="T70">
+<Obj plainTxt="False" ><![CDATA[[ 锁车设置成功！ ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:01]]></Time>
+<TimeTick>1407999961</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="130" Source="Action1 [LockSet]" SourceLine="121" >
+<Disp><![CDATA[[ 锁车设置成功！ ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="17" nRep="129" Source="Action1 [LockSet]" SourceLine="121" >
+<Disp><![CDATA[来自网页的消息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="101" Source="Action1 [LockSet]" SourceLine="25" >
+<Disp><![CDATA[住友_锁解车设置]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T71">
+<Obj ><![CDATA[锁车设置成功]]></Obj>
+<Details ><![CDATA[锁车设置成功]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:01]]></Time>
+<TimeTick>1407999961</TimeTick>
+<NodeArgs eType="User" icon="5" nRep="131" status="Passed" Source="Action1 [LockSet]" SourceLine="122" >
+<Disp><![CDATA[锁车设置成功]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T72">
+<Obj plainTxt="False" ><![CDATA[住友_锁解车设置]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:01]]></Time>
+<TimeTick>1407999961</TimeTick>
+<Step rID="T73">
+<Obj plainTxt="False" ><![CDATA[来自网页的消息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:01]]></Time>
+<TimeTick>1407999961</TimeTick>
+<Step rID="T74">
+<Obj plainTxt="False" ><![CDATA[确定.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:01]]></Time>
+<TimeTick>1407999961</TimeTick>
+<NodeArgs eType="Replay" icon="19" nRep="135" Source="Action1 [LockSet]" SourceLine="123" >
+<Disp><![CDATA[确定.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="17" nRep="134" Source="Action1 [LockSet]" SourceLine="123" >
+<Disp><![CDATA[来自网页的消息]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T75">
+<Obj plainTxt="False" ><![CDATA[住友_锁解车设置.Close]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:02]]></Time>
+<TimeTick>1407999962</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="136" Source="Action1 [LockSet]" SourceLine="133" >
+<Disp><![CDATA[住友_锁解车设置.Close]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="7" nRep="133" Source="Action1 [LockSet]" SourceLine="123" >
+<Disp><![CDATA[住友_锁解车设置]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 15:05:57" eTime="2014-8-14 - 15:06:02" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="77" status="Passed" >
+<Disp><![CDATA[Action1 [LockSet] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Step rID="T76">
+<Obj plainTxt="False" ><![CDATA[Stop Run]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run stopped by user.]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:04]]></Time>
+<TimeTick>1407999964</TimeTick>
+<NodeArgs eType="General" icon="20" nRep="138" >
+<Disp><![CDATA[Stop Run]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 15:05:49" eTime="2014-8-14 - 15:06:04" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="3" nRep="6" status="Passed" >
+<Disp><![CDATA[Action1 Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Step rID="T77">
+<Obj plainTxt="False" ><![CDATA[Stop Run]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run stopped by user.]]></Details>
+<Time><![CDATA[2014-8-14 - 15:06:04]]></Time>
+<TimeTick>1407999964</TimeTick>
+<NodeArgs eType="General" icon="21" nRep="140" >
+<Disp><![CDATA[Stop Run]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 15:05:48" eTime="2014-8-14 - 15:06:04" passed="7" failed="0" warnings="0" stopped="True" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="3" status="Passed" >
+<Disp><![CDATA[Test Case1_VehiMsg_LastSubm_LockAndUnlock Summary]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>

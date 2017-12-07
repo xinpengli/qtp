@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="GB2312"?>
+<ErrMsg><TestCase CaseName="Case4_1_VehiMsg_MsgQuery_Timing" Description="ErrLog"><VersionNo VersionNo="3.0"><ActionName>Action1 [Check_MsgQuery_Timing]</ActionName><CurrentRow>1</CurrentRow><RowCount>1</RowCount><ErrCode>1041</ErrCode><ErrDescription>名称重定义</ErrDescription><ErrSource>Microsoft VBScript 运行时错误</ErrSource><RecordTime>2014-10-11 11:13:14</RecordTime></VersionNo></TestCase></ErrMsg>

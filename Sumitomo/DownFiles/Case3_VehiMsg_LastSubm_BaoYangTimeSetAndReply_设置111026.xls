@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>保养时间间隔设置信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>提交时间</b></td><td><b>柴油粗滤</b></td><td><b>柴油细滤</b></td><td><b>机油</b></td><td><b>机油滤芯</b></td><td><b>空滤</b></td><td><b>透气阀滤芯</b></td><td><b>先导油滤</b></td><td><b>回油滤芯</b></td><td><b>吸油滤芯</b></td><td><b>液压油</b></td><td><b>回转减速齿轮油</b></td><td><b>行走减速齿轮油</b></td><td><b>空调滤芯</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">2014-10-11 11:10:13</td><td style="vnd.ms-excel.numberformat:@">250</td><td style="vnd.ms-excel.numberformat:@">500</td><td style="vnd.ms-excel.numberformat:@">500</td><td style="vnd.ms-excel.numberformat:@">500</td><td style="vnd.ms-excel.numberformat:@">1000</td><td style="vnd.ms-excel.numberformat:@">1000</td><td style="vnd.ms-excel.numberformat:@">2000</td><td style="vnd.ms-excel.numberformat:@">2000</td><td style="vnd.ms-excel.numberformat:@">65535</td><td style="vnd.ms-excel.numberformat:@">5000</td><td style="vnd.ms-excel.numberformat:@">1000</td><td style="vnd.ms-excel.numberformat:@">1000</td><td style="vnd.ms-excel.numberformat:@">2000</td> </tr>
+</table>
+</body>
+</html>

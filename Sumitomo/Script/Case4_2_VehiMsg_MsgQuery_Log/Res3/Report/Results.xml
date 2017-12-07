@@ -1,0 +1,3995 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,ConfName?,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Doc*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC|BPTWrapperTest|Flow|Group) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT ConfName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step*,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,ActionMaintenanceSummary*,NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?,ExtendedInfo? )>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED UserNote CDATA #IMPLIED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT ExtendedInfo ( StepData ) >
+
+<!ATTLIST ExtendedInfo StepType CDATA #REQUIRED>
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="中国标准时间">
+<General productName="QuickTest Professional" productVer="11.00" os="Windows XP" host="TY-GH"><DocLocation><![CDATA[C:\Program Files\HP\QuickTest Professional\Tests\Sumitomo\Script\Case4_2_VehiMsg_MsgQuery_Log]]></DocLocation></General>
+<Doc rID="T1"   productName= "QuickTest Professional"  >
+<DName><![CDATA[Case4_2_VehiMsg_MsgQuery_Log]]></DName>
+<Res><![CDATA[Res3]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table">
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[Action1]]></AName>
+<Action rID="T5">
+<AName><![CDATA[Action1 [CleanHistoryData]]]></AName>
+<Step rID="T6">
+<Obj ><![CDATA[日志对应设备autotest历史数据清除完毕]]></Obj>
+<Details ><![CDATA[日志对应设备autotest历史数据清除完毕]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:30]]></Time>
+<TimeTick>1407977250</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="9" status="Passed" Source="Action1 [CleanHistoryData]" SourceLine="46" >
+<Disp><![CDATA[日志对应设备autotest历史数据清除完毕]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 8:47:30" eTime="2014-8-14 - 8:47:30" passed="1" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="8" status="Passed" >
+<Disp><![CDATA[Action1 [CleanHistoryData] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T7">
+<AName><![CDATA[Action1 [Login]]]></AName>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[SystemUtil]]></Obj>
+<Details plainTxt="False" ><![CDATA[SystemUtil]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:31]]></Time>
+<TimeTick>1407977251</TimeTick>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[Run "iexplore.exe",1]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run "iexplore.exe",1]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:31]]></Time>
+<TimeTick>1407977251</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="15" status="Passed" Source="Action1 [Login]" SourceLine="5" >
+<Disp><![CDATA[Run "iexplore.exe",1]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="7" nRep="14" status="Passed" Source="Action1 [Login]" SourceLine="5" >
+<Disp><![CDATA[SystemUtil]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[登录页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[帐户.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="19" Source="Action1 [Login]" SourceLine="7" >
+<Disp><![CDATA[帐户.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="18" Source="Action1 [Login]" SourceLine="7" >
+<Disp><![CDATA[登录页]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="17" Source="Action1 [Login]" SourceLine="7" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[The retrieve DataTable.Value operation failed. The &lt;LockUnlockFlag&gt; column does not exist.<BR>Line (10): &quot;if(Datatable(&quot;LockUnlockFlag&quot;,&quot;Global&quot;)=&quot;锁车&quot;)then&quot;. ]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="20" status="Failed" Source="Action1 [Login]" SourceLine="9" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[登录页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[帐户.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["AutoProdtest"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:33]]></Time>
+<TimeTick>1407977253</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="25" Source="Action1 [Login]" SourceLine="9" >
+<Disp><![CDATA[帐户.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[密码.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:34]]></Time>
+<TimeTick>1407977254</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="27" Source="Action1 [Login]" SourceLine="15" >
+<Disp><![CDATA[密码.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[密码.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["123"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:34]]></Time>
+<TimeTick>1407977254</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="30" Source="Action1 [Login]" SourceLine="16" >
+<Disp><![CDATA[密码.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[登录.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:34]]></Time>
+<TimeTick>1407977254</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="32" Source="Action1 [Login]" SourceLine="18" >
+<Disp><![CDATA[登录.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA[登录.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:34]]></Time>
+<TimeTick>1407977254</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="35" Source="Action1 [Login]" SourceLine="19" >
+<Disp><![CDATA[登录.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="24" Source="Action1 [Login]" SourceLine="9" >
+<Disp><![CDATA[登录页]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[主页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[主页.Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="39" Source="Action1 [Login]" SourceLine="22" >
+<Disp><![CDATA[主页.Sync]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="38" Source="Action1 [Login]" SourceLine="22" >
+<Disp><![CDATA[主页]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="23" Source="Action1 [Login]" SourceLine="9" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[Run Error]]></Obj>
+<Details plainTxt="False" ><![CDATA[The retrieve DataTable.Value operation failed. The &lt;LockUnlockFlag&gt; column does not exist.<BR>Line (28): &quot;if(Datatable(&quot;LockUnlockFlag&quot;,&quot;Global&quot;)=&quot;锁车&quot;)then&quot;. ]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="41" status="Failed" Source="Action1 [Login]" SourceLine="27" >
+<Disp><![CDATA[Run Error]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T24">
+<Obj ><![CDATA[二次登录成功]]></Obj>
+<Details ><![CDATA[期望登录用户名: AutoProdtest实际登录用户名是: AutoProdtest]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="42" status="Passed" Source="Action1 [Login]" SourceLine="29" >
+<Disp><![CDATA[二次登录成功]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 8:47:30" eTime="2014-8-14 - 8:47:35" passed="2" failed="2" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="11" status="Failed" >
+<Disp><![CDATA[Action1 [Login] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T25">
+<AName><![CDATA[Action1 [IntoVehiInfoFramePage]]]></AName>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA[主页]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA[左导航栏]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<Step rID="T29">
+<Obj plainTxt="False" ><![CDATA[查询中心.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="49" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[查询中心.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[查询中心.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:35]]></Time>
+<TimeTick>1407977255</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="52" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="4" >
+<Disp><![CDATA[查询中心.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="48" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[左导航栏]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="47" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[主页]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA[主页_查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA[查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA[位置:查询中心.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="56" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="8" >
+<Disp><![CDATA[位置:查询中心.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="55" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="8" >
+<Disp><![CDATA[查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="54" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="8" >
+<Disp><![CDATA[主页_查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="46" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="3" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj ><![CDATA[进入查询中心页成功]]></Obj>
+<Details ><![CDATA[期望位置:您的位置：>> 查询中心  实际位置:您的位置：>> 查询中心]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="58" status="Passed" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="11" >
+<Disp><![CDATA[进入查询中心页成功]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[主页_查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<Step rID="T37">
+<Obj plainTxt="False" ><![CDATA[查询中心]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<Step rID="T38">
+<Obj plainTxt="False" ><![CDATA[机号.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="63" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[机号.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[机号.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["autotest"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="66" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="18" >
+<Disp><![CDATA[机号.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA[唯一查询.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="68" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="20" >
+<Disp><![CDATA[唯一查询.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T41">
+<Obj plainTxt="False" ><![CDATA[唯一查询.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:36]]></Time>
+<TimeTick>1407977256</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="71" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="21" >
+<Disp><![CDATA[唯一查询.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="62" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="61" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[主页_查询中心]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T42">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:37]]></Time>
+<TimeTick>1407977257</TimeTick>
+<Step rID="T43">
+<Obj plainTxt="False" ><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebElement<br>innertext=您的位置：&gt&gt 车辆信息<br>html tag=TD<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (180 objects found)&nbsp;</FONT></u><br>
+micclass=WebElement<br>html tag=TD<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=<SPAN class=passed> (Used</SPAN>, 145 matches)</SPAN><br>class=weizhi<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>innertext=您的位置：&gt&gt 车辆信息<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:37]]></Time>
+<TimeTick>1407977257</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="74" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="25" >
+<Disp><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T44">
+<Obj plainTxt="False" ><![CDATA[您的位置>>车辆信息.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:37]]></Time>
+<TimeTick>1407977257</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="75" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="25" >
+<Disp><![CDATA[您的位置>>车辆信息.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (2 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebElement<br>innertext=您的位置：&gt&gt 车辆信息<br>html tag=TD<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (180 objects found)&nbsp;</FONT></u><br>
+micclass=WebElement<br>html tag=TD<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=<SPAN class=passed> (Used</SPAN>, 145 matches)</SPAN><br>class=weizhi<SPAN class=passed> (Used</SPAN>, 2 matches)</SPAN><br>innertext=您的位置：&gt&gt 车辆信息<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>visible=1<SPAN class=warning> (Ignored)<FONT color=#000000></FONT></SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:37]]></Time>
+<TimeTick>1407977257</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="77" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="26" >
+<Disp><![CDATA["您的位置>>车辆信息"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="73" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="25" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="60" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="17" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T46">
+<Obj ><![CDATA[进入车辆信息页成功]]></Obj>
+<Details ><![CDATA[期望位置:您的位置：>> 车辆信息  实际位置:您的位置：>> 车辆信息]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:37]]></Time>
+<TimeTick>1407977257</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="78" status="Passed" Source="Action1 [IntoVehiInfoFramePage]" SourceLine="28" >
+<Disp><![CDATA[进入车辆信息页成功]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 8:47:35" eTime="2014-8-14 - 8:47:37" passed="2" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="44" status="Passed" >
+<Disp><![CDATA[Action1 [IntoVehiInfoFramePage] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T47">
+<AName><![CDATA[Action1 [QueryMsgMaxReceivalID]]]></AName>
+<Summary sTime="2014-8-14 - 8:47:37" eTime="2014-8-14 - 8:47:38" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="80" >
+<Disp><![CDATA[Action1 [QueryMsgMaxReceivalID] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T48">
+<AName><![CDATA[Action1 [InsertMsgQuerySource]]]></AName>
+<Step rID="T49">
+<Obj ><![CDATA[insert日志信息源码完毕]]></Obj>
+<Details ><![CDATA[insert日志源码完毕]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:46]]></Time>
+<TimeTick>1407977266</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="83" status="Passed" Source="Action1 [InsertMsgQuerySource]" SourceLine="94" >
+<Disp><![CDATA[insert日志信息源码完毕]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 8:47:38" eTime="2014-8-14 - 8:47:47" passed="1" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="82" status="Passed" >
+<Disp><![CDATA[Action1 [InsertMsgQuerySource] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T50">
+<AName><![CDATA[Action1 [Check_MsgQuery_Log]]]></AName>
+<Step rID="T51">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:47]]></Time>
+<TimeTick>1407977267</TimeTick>
+<Step rID="T52">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:47]]></Time>
+<TimeTick>1407977267</TimeTick>
+<Step rID="T53">
+<Obj plainTxt="False" ><![CDATA[最新提交_.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:47]]></Time>
+<TimeTick>1407977267</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="89" Source="Action1 [Check_MsgQuery_Log]" SourceLine="3" >
+<Disp><![CDATA[最新提交_.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T54">
+<Obj plainTxt="False" ><![CDATA[最新提交_.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:47]]></Time>
+<TimeTick>1407977267</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="92" Source="Action1 [Check_MsgQuery_Log]" SourceLine="4" >
+<Disp><![CDATA[最新提交_.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T55">
+<Obj plainTxt="False" ><![CDATA[信息查询_.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:48]]></Time>
+<TimeTick>1407977268</TimeTick>
+<NodeArgs eType="Replay" icon="16" nRep="94" Source="Action1 [Check_MsgQuery_Log]" SourceLine="7" >
+<Disp><![CDATA[信息查询_.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T56">
+<Obj plainTxt="False" ><![CDATA[信息查询_.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:48]]></Time>
+<TimeTick>1407977268</TimeTick>
+<NodeArgs eType="Replay" icon="16" nRep="97" Source="Action1 [Check_MsgQuery_Log]" SourceLine="8" >
+<Disp><![CDATA[信息查询_.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T57">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:48]]></Time>
+<TimeTick>1407977268</TimeTick>
+<Step rID="T58">
+<Obj plainTxt="False" ><![CDATA[您的位置>>车辆信息>>信息查询.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:48]]></Time>
+<TimeTick>1407977268</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="100" Source="Action1 [Check_MsgQuery_Log]" SourceLine="12" >
+<Disp><![CDATA[您的位置>>车辆信息>>信息查询.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="99" Source="Action1 [Check_MsgQuery_Log]" SourceLine="12" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="88" Source="Action1 [Check_MsgQuery_Log]" SourceLine="3" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="87" Source="Action1 [Check_MsgQuery_Log]" SourceLine="3" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T59">
+<Obj ><![CDATA[进入车辆信息-信息查询页成功]]></Obj>
+<Details ><![CDATA[期望值：您的位置：>> 车辆信息 >>信息查询 实际值：您的位置：>> 车辆信息 >>信息查询 ]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:48]]></Time>
+<TimeTick>1407977268</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="102" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="15" >
+<Disp><![CDATA[进入车辆信息-信息查询页成功]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T60">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<Step rID="T61">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<Step rID="T62">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<Step rID="T63">
+<Obj plainTxt="False" ><![CDATA[开始时间.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="107" Source="Action1 [Check_MsgQuery_Log]" SourceLine="23" >
+<Disp><![CDATA[开始时间.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T64">
+<Obj plainTxt="False" ><![CDATA[开始时间.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="108" Source="Action1 [Check_MsgQuery_Log]" SourceLine="24" >
+<Disp><![CDATA[开始时间.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T65">
+<Obj plainTxt="False" ><![CDATA[结束时间.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="111" Source="Action1 [Check_MsgQuery_Log]" SourceLine="26" >
+<Disp><![CDATA[结束时间.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T66">
+<Obj plainTxt="False" ><![CDATA[结束时间.Object]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="112" Source="Action1 [Check_MsgQuery_Log]" SourceLine="27" >
+<Disp><![CDATA[结束时间.Object]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T67">
+<Obj plainTxt="False" ><![CDATA[信息类型.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<NodeArgs eType="Replay" icon="17" nRep="115" Source="Action1 [Check_MsgQuery_Log]" SourceLine="29" >
+<Disp><![CDATA[信息类型.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T68">
+<Obj plainTxt="False" ><![CDATA[信息类型.Select]]></Obj>
+<Details plainTxt="False" ><![CDATA["日志信息"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:49]]></Time>
+<TimeTick>1407977269</TimeTick>
+<NodeArgs eType="Replay" icon="17" nRep="118" Source="Action1 [Check_MsgQuery_Log]" SourceLine="30" >
+<Disp><![CDATA[信息类型.Select]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T69">
+<Obj plainTxt="False" ><![CDATA[查询.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:50]]></Time>
+<TimeTick>1407977270</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="120" Source="Action1 [Check_MsgQuery_Log]" SourceLine="33" >
+<Disp><![CDATA[查询.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T70">
+<Obj plainTxt="False" ><![CDATA[查询.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:50]]></Time>
+<TimeTick>1407977270</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="123" Source="Action1 [Check_MsgQuery_Log]" SourceLine="34" >
+<Disp><![CDATA[查询.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="106" Source="Action1 [Check_MsgQuery_Log]" SourceLine="23" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T71">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息.Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:50]]></Time>
+<TimeTick>1407977270</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="126" Source="Action1 [Check_MsgQuery_Log]" SourceLine="36" >
+<Disp><![CDATA[主页_车辆信息.Sync]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T72">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:50]]></Time>
+<TimeTick>1407977270</TimeTick>
+<Step rID="T73">
+<Obj plainTxt="False" ><![CDATA["信息查询列表"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebTable<br>html tag=TABLE<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=WebTable<br>html tag=TABLE<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=dgTiming<SPAN class=Failed> (Skipped)</SPAN><br>border=1<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:50]]></Time>
+<TimeTick>1407977270</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="129" Source="Action1 [Check_MsgQuery_Log]" SourceLine="40" >
+<Disp><![CDATA["信息查询列表"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T74">
+<Obj plainTxt="False" ><![CDATA[信息查询列表.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:50]]></Time>
+<TimeTick>1407977270</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="130" Source="Action1 [Check_MsgQuery_Log]" SourceLine="40" >
+<Disp><![CDATA[信息查询列表.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T75">
+<Obj plainTxt="False" ><![CDATA["信息查询列表"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebTable<br>html tag=TABLE<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=WebTable<br>html tag=TABLE<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=dgTiming<SPAN class=Failed> (Skipped)</SPAN><br>border=1<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="132" Source="Action1 [Check_MsgQuery_Log]" SourceLine="44" >
+<Disp><![CDATA["信息查询列表"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T76">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[ColumnCount]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="133" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T77">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="134" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T78">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="135" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="128" Source="Action1 [Check_MsgQuery_Log]" SourceLine="40" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="105" Source="Action1 [Check_MsgQuery_Log]" SourceLine="23" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="104" Source="Action1 [Check_MsgQuery_Log]" SourceLine="23" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T79">
+<Obj ><![CDATA[日志-机号-检查通过]]></Obj>
+<Details ><![CDATA[期望值: autotest实际值: autotest]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="136" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="50" >
+<Disp><![CDATA[日志-机号-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T80">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<Step rID="T81">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<Step rID="T82">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<Step rID="T83">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="140" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T84">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="141" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="139" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="138" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="137" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T85">
+<Obj ><![CDATA[日志-信息发送时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 2014-8-14 8:47:38实际值: 2014-8-14 8:47:38]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="142" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="57" >
+<Disp><![CDATA[日志-信息发送时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T86">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<Step rID="T87">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<Step rID="T88">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<Step rID="T89">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="146" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T90">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:53]]></Time>
+<TimeTick>1407977273</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="147" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="145" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="144" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="143" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T91">
+<Obj ><![CDATA[日志-日志日期-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 2014-08-13实际值: 2014-08-13]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="148" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="64" >
+<Disp><![CDATA[日志-日志日期-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T92">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T93">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T94">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T95">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="152" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T96">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="153" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="151" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="150" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="149" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T97">
+<Obj ><![CDATA[日志-经度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 114.623实际值: 114.623]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="154" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="70" >
+<Disp><![CDATA[日志-经度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T98">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T99">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T100">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T101">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="158" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T102">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="159" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="157" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="156" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="155" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T103">
+<Obj ><![CDATA[日志-纬度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 38.045实际值: 38.045]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="160" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="76" >
+<Disp><![CDATA[日志-纬度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T104">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T105">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T106">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<Step rID="T107">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="164" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T108">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="165" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="163" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="162" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="161" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T109">
+<Obj ><![CDATA[日志-位置-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 河北省石家庄市裕华区 秦岭大街附近实际值: 河北省石家庄市裕华区 秦岭大街附近]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:54]]></Time>
+<TimeTick>1407977274</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="166" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="82" >
+<Disp><![CDATA[日志-位置-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T110">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T111">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T112">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T113">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="170" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T114">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="171" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="169" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="168" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="167" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T115">
+<Obj ><![CDATA[日志-累计耗油量-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 75L实际值: 75L]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="172" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="88" >
+<Disp><![CDATA[日志-累计耗油量-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T116">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T117">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T118">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T119">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="176" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T120">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="177" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="175" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="174" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="173" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T121">
+<Obj ><![CDATA[日志-机器操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 137小时49分钟实际值: 3分钟]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="178" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="96" >
+<Disp><![CDATA[日志-机器操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T122">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T123">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T124">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T125">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="182" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T126">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="183" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="181" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="180" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="179" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T127">
+<Obj ><![CDATA[日志-上物操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 21小时实际值: 2小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="184" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="102" >
+<Disp><![CDATA[日志-上物操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T128">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T129">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T130">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<Step rID="T131">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="188" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T132">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:55]]></Time>
+<TimeTick>1407977275</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="189" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="187" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="186" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="185" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T133">
+<Obj ><![CDATA[日志-回转操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 8小时实际值: 1小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="190" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="108" >
+<Disp><![CDATA[日志-回转操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T134">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T135">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T136">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T137">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="194" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T138">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="195" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="193" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="192" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="191" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T139">
+<Obj ><![CDATA[日志-行走操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 36小时实际值: 4小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="196" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="114" >
+<Disp><![CDATA[日志-行走操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T140">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T141">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T142">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T143">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="200" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T144">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="201" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="199" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="198" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="197" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T145">
+<Obj ><![CDATA[日志-SP模式操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 48小时实际值: 2小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="202" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="120" >
+<Disp><![CDATA[日志-SP模式操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T146">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T147">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T148">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<Step rID="T149">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="206" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T150">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="207" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="205" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="204" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="203" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T151">
+<Obj ><![CDATA[日志-H模式操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 31小时实际值: 1小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:56]]></Time>
+<TimeTick>1407977276</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="208" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="126" >
+<Disp><![CDATA[日志-H模式操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T152">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T153">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T154">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T155">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="212" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T156">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="213" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="211" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="210" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="209" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T157">
+<Obj ><![CDATA[日志-A模式操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 21小时实际值: 1小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="214" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="132" >
+<Disp><![CDATA[日志-A模式操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T158">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T159">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T160">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T161">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="218" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T162">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="219" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="217" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="216" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="215" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T163">
+<Obj ><![CDATA[日志-B模式操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 28小时实际值: 3小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="220" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="138" >
+<Disp><![CDATA[日志-B模式操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T164">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T165">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T166">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T167">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="224" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T168">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="225" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="223" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="222" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="221" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T169">
+<Obj ><![CDATA[日志-C模式操作时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 34小时实际值: 3小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="226" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="144" >
+<Disp><![CDATA[日志-C模式操作时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T170">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T171">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T172">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<Step rID="T173">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="230" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T174">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:57]]></Time>
+<TimeTick>1407977277</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="231" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="229" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="228" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="227" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T175">
+<Obj ><![CDATA[日志-冷却水温最高温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 90℃实际值: 90℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="232" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="148" >
+<Disp><![CDATA[日志-冷却水温最高温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T176">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T177">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T178">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T179">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="236" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T180">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="237" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="235" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="234" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="233" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T181">
+<Obj ><![CDATA[日志-燃料温最高温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 35℃实际值: 35℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="238" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="154" >
+<Disp><![CDATA[日志-燃料温最高温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T182">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T183">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T184">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T185">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="242" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T186">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="243" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="241" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="240" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="239" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T187">
+<Obj ><![CDATA[日志-吸气最高温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 40℃实际值: 40℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="244" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="160" >
+<Disp><![CDATA[日志-吸气最高温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T188">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T189">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T190">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T191">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="248" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T192">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="249" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="247" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="246" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="245" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T193">
+<Obj ><![CDATA[日志-加压最高温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 45℃实际值: 45℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="250" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="166" >
+<Disp><![CDATA[日志-加压最高温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T194">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T195">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T196">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:58]]></Time>
+<TimeTick>1407977278</TimeTick>
+<Step rID="T197">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="254" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T198">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="255" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="253" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="252" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="251" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T199">
+<Obj ><![CDATA[日志-液压油温最高温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 50℃实际值: 50℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="256" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="172" >
+<Disp><![CDATA[日志-液压油温最高温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T200">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T201">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T202">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T203">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="260" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T204">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="261" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="259" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="258" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="257" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T205">
+<Obj ><![CDATA[日志-冷却水温最低温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 90℃实际值: 90℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="262" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="178" >
+<Disp><![CDATA[日志-冷却水温最低温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T206">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T207">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T208">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T209">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="266" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T210">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="267" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="265" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="264" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="263" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T211">
+<Obj ><![CDATA[日志-大气压最低压力-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 50Kpa实际值: 50Kpa]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="268" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="184" >
+<Disp><![CDATA[日志-大气压最低压力-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T212">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T213">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T214">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<Step rID="T215">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="272" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T216">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:47:59]]></Time>
+<TimeTick>1407977279</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="273" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="271" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="270" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="269" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T217">
+<Obj ><![CDATA[日志-T＜77℃(水温分布)-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.84实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="274" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="192" >
+<Disp><![CDATA[日志-T＜77℃(水温分布)-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T218">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T219">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T220">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T221">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="278" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T222">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="279" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="277" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="276" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="275" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T223">
+<Obj ><![CDATA[日志-77℃≦T＜82℃-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="280" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="198" >
+<Disp><![CDATA[日志-77℃≦T＜82℃-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T224">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T225">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T226">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T227">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="284" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T228">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="285" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="283" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="282" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="281" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T229">
+<Obj ><![CDATA[日志-82℃≦T＜97℃-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="286" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="204" >
+<Disp><![CDATA[日志-82℃≦T＜97℃-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T230">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T231">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T232">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T233">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="290" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T234">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="291" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="289" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="288" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="287" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T235">
+<Obj ><![CDATA[日志-97℃≦T＜100℃-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="292" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="210" >
+<Disp><![CDATA[日志-97℃≦T＜100℃-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T236">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T237">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T238">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<Step rID="T239">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:00]]></Time>
+<TimeTick>1407977280</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="296" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T240">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="297" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="295" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="294" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="293" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T241">
+<Obj ><![CDATA[日志-100℃≦T＜103℃-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="298" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="216" >
+<Disp><![CDATA[日志-100℃≦T＜103℃-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T242">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T243">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T244">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T245">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="302" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T246">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="303" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="301" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="300" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="299" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T247">
+<Obj ><![CDATA[日志-103℃≦T＜105℃-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="304" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="222" >
+<Disp><![CDATA[日志-103℃≦T＜105℃-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T248">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T249">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T250">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T251">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="308" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T252">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="309" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="307" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="306" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="305" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T253">
+<Obj ><![CDATA[日志-105℃≦T-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="310" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="228" >
+<Disp><![CDATA[日志-105℃≦T-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T254">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T255">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T256">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<Step rID="T257">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="314" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T258">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:01]]></Time>
+<TimeTick>1407977281</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="315" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="313" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="312" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="311" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T259">
+<Obj ><![CDATA[日志-R＜30％(负荷率分布)-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.84实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="316" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="234" >
+<Disp><![CDATA[日志-R＜30％(负荷率分布)-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T260">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T261">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T262">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T263">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="320" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T264">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="321" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="319" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="318" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="317" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T265">
+<Obj ><![CDATA[日志-30％≦R＜40％-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="322" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="240" >
+<Disp><![CDATA[日志-30％≦R＜40％-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T266">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T267">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T268">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T269">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="326" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T270">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="327" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="325" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="324" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="323" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T271">
+<Obj ><![CDATA[日志-40％≦R＜50％-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="328" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="246" >
+<Disp><![CDATA[日志-40％≦R＜50％-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T272">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T273">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T274">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<Step rID="T275">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="332" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T276">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="333" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="331" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="330" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="329" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T277">
+<Obj ><![CDATA[日志-50％≦R＜60％-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:02]]></Time>
+<TimeTick>1407977282</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="334" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="252" >
+<Disp><![CDATA[日志-50％≦R＜60％-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T278">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T279">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T280">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T281">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="338" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T282">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="339" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="337" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="336" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="335" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T283">
+<Obj ><![CDATA[日志-60％≦R＜70％-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="340" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="258" >
+<Disp><![CDATA[日志-60％≦R＜70％-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T284">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T285">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T286">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T287">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="344" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T288">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="345" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="343" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="342" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="341" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T289">
+<Obj ><![CDATA[日志-70％≦R＜80％-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="346" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="264" >
+<Disp><![CDATA[日志-70％≦R＜80％-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T290">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T291">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T292">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T293">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="350" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T294">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="351" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="349" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="348" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="347" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T295">
+<Obj ><![CDATA[日志-80％≦R-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 5.83实际值: 0.83]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="352" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="270" >
+<Disp><![CDATA[日志-80％≦R-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T296">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T297">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T298">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<Step rID="T299">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="356" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T300">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:03]]></Time>
+<TimeTick>1407977283</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="357" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="355" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="354" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="353" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T301">
+<Obj ><![CDATA[日志-油压最高值-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 600实际值: 600]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="358" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="274" >
+<Disp><![CDATA[日志-油压最高值-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T302">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T303">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T304">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T305">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="362" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T306">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="363" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="361" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="360" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="359" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T307">
+<Obj ><![CDATA[日志-增压后进气压力最高值-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 200实际值: 200]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="364" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="280" >
+<Disp><![CDATA[日志-增压后进气压力最高值-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T308">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T309">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T310">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T311">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="368" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T312">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="369" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="367" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="366" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="365" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T313">
+<Obj ><![CDATA[日志-燃料温最低温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 35℃实际值: 35℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="370" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="286" >
+<Disp><![CDATA[日志-燃料温最低温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T314">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T315">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T316">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<Step rID="T317">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="374" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T318">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="375" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="373" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="372" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="371" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T319">
+<Obj ><![CDATA[日志-油压最低值-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 600实际值: 600]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:04]]></Time>
+<TimeTick>1407977284</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="376" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="292" >
+<Disp><![CDATA[日志-油压最低值-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T320">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T321">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T322">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T323">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="380" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T324">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="381" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="379" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="378" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="377" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T325">
+<Obj ><![CDATA[日志-发动机工作小时-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 36小时40分钟实际值: 5小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="382" status="Failed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="300" >
+<Disp><![CDATA[日志-发动机工作小时-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T326">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T327">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T328">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T329">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="386" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T330">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="387" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="385" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="384" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="383" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T331">
+<Obj ><![CDATA[日志-当天发动机工作小时-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 0小时实际值: 0小时]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="388" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="304" >
+<Disp><![CDATA[日志-当天发动机工作小时-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T332">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T333">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T334">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T335">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="392" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T336">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="393" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="391" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="390" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="389" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T337">
+<Obj ><![CDATA[日志-当天耗油量-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 0L实际值: 0L]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="394" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="310" >
+<Disp><![CDATA[日志-当天耗油量-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T338">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T339">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T340">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<Step rID="T341">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="398" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T342">
+<Obj plainTxt="False" ><![CDATA["信息查询列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:05]]></Time>
+<TimeTick>1407977285</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="399" >
+<Disp><![CDATA["信息查询列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="397" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="396" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="395" Source="Action1 [Check_MsgQuery_Log]" SourceLine="45" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T343">
+<Obj ><![CDATA[日志-吸气最低温度-检查通过]]></Obj>
+<Details ><![CDATA[期望值: 40℃实际值: 40℃]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="400" status="Passed" Source="Action1 [Check_MsgQuery_Log]" SourceLine="316" >
+<Disp><![CDATA[日志-吸气最低温度-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T344">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<Step rID="T345">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<Step rID="T346">
+<Obj plainTxt="False" ><![CDATA[信息查询]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<Step rID="T347">
+<Obj plainTxt="False" ><![CDATA[下载.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="405" Source="Action1 [Check_MsgQuery_Log]" SourceLine="323" >
+<Disp><![CDATA[下载.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T348">
+<Obj plainTxt="False" ><![CDATA[下载.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="408" Source="Action1 [Check_MsgQuery_Log]" SourceLine="324" >
+<Disp><![CDATA[下载.Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="404" Source="Action1 [Check_MsgQuery_Log]" SourceLine="323" >
+<Disp><![CDATA[信息查询]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T349">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息.Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:06]]></Time>
+<TimeTick>1407977286</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="411" Source="Action1 [Check_MsgQuery_Log]" SourceLine="326" >
+<Disp><![CDATA[主页_车辆信息.Sync]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="403" Source="Action1 [Check_MsgQuery_Log]" SourceLine="323" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="402" Source="Action1 [Check_MsgQuery_Log]" SourceLine="323" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Action rID="T350">
+<AName><![CDATA[Action1 [DownFile]]]></AName>
+<Step rID="T351">
+<Obj plainTxt="False" ><![CDATA[文件下载]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<Step rID="T352">
+<Obj plainTxt="False" ><![CDATA[保存(S).Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<NodeArgs eType="Replay" icon="20" nRep="414" Source="Action1 [DownFile]" SourceLine="4" >
+<Disp><![CDATA[保存(S).Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T353">
+<Obj plainTxt="False" ><![CDATA[保存(S).Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<NodeArgs eType="Replay" icon="20" nRep="416" Source="Action1 [DownFile]" SourceLine="5" >
+<Disp><![CDATA[保存(S).Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="19" nRep="413" Source="Action1 [DownFile]" SourceLine="4" >
+<Disp><![CDATA[文件下载]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T354">
+<Obj plainTxt="False" ><![CDATA[已完成安装-进度]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<Step rID="T355">
+<Obj plainTxt="False" ><![CDATA[另存为]]></Obj>
+<Details plainTxt="False" ><![CDATA[Dialog]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<Step rID="T356">
+<Obj plainTxt="False" ><![CDATA[文件名(N).Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<NodeArgs eType="Replay" icon="21" nRep="419" Source="Action1 [DownFile]" SourceLine="8" >
+<Disp><![CDATA[文件名(N).Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T357">
+<Obj plainTxt="False" ><![CDATA[文件名(N).SetText]]></Obj>
+<Details plainTxt="False" ><![CDATA["D:\Case4_2_VehiMsg_MsgQuery_Log_日志信息084807.xls"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<NodeArgs eType="Replay" icon="21" nRep="421" Source="Action1 [DownFile]" SourceLine="30" >
+<Disp><![CDATA[文件名(N).SetText]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T358">
+<Obj plainTxt="False" ><![CDATA[保存(S).Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:07]]></Time>
+<TimeTick>1407977287</TimeTick>
+<NodeArgs eType="Replay" icon="20" nRep="422" Source="Action1 [DownFile]" SourceLine="33" >
+<Disp><![CDATA[保存(S).Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T359">
+<Obj plainTxt="False" ><![CDATA[保存(S).Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:08]]></Time>
+<TimeTick>1407977288</TimeTick>
+<NodeArgs eType="Replay" icon="20" nRep="424" Source="Action1 [DownFile]" SourceLine="34" >
+<Disp><![CDATA[保存(S).Click]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="19" nRep="418" Source="Action1 [DownFile]" SourceLine="8" >
+<Disp><![CDATA[另存为]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="19" nRep="417" Source="Action1 [DownFile]" SourceLine="8" >
+<Disp><![CDATA[已完成安装-进度]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T360">
+<Obj ><![CDATA[excel下载成功]]></Obj>
+<Details ><![CDATA[excel下载成功]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:09]]></Time>
+<TimeTick>1407977289</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="425" status="Passed" Source="Action1 [DownFile]" SourceLine="40" >
+<Disp><![CDATA[excel下载成功]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T361">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<Step rID="T362">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<Step rID="T363">
+<Obj plainTxt="False" ><![CDATA[最新提交_查看锁车设置/回复信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<Step rID="T364">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebTable<br>html tag=TABLE<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=WebTable<br>html tag=TABLE<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=dgMatn_Set<SPAN class=Failed> (Skipped)</SPAN><br>border=1<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="430" Source="Action1 [DownFile]" SourceLine="57" >
+<Disp><![CDATA["锁车设置/回复信息列表"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T365">
+<Obj plainTxt="False" ><![CDATA[锁车设置/回复信息列表.Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="Replay" icon="18" nRep="431" Source="Action1 [DownFile]" SourceLine="57" >
+<Disp><![CDATA[锁车设置/回复信息列表.Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T366">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表"- Smart Identification]]></Obj>
+<Details plainTxt="False" ><![CDATA[<P><span class="text">The smart identification mechanism was invoked.</span></P><P><SPAN class=text>Reason: object not unique (8 objects found)</SPAN></P>           <SPAN class=text><b>Original description:</b></SPAN><br>micclass=WebTable<br>html tag=TABLE<br><P><FONT face=Verdana size=2><SPAN class=text><B>Smart Identification Alternative Description: </B></SPAN></FONT></P><FONT face=Verdana size=2><u>Base filter properties (8 objects found)&nbsp;</FONT></u><br>
+micclass=WebTable<br>html tag=TABLE<br><br><FONT face=Verdana size=2><u>Optional filter properties</FONT></u><br>
+html id=dgMatn_Set<SPAN class=Failed> (Skipped)</SPAN><br>border=1<SPAN class=passed> (Used</SPAN>, 1 matches)</SPAN><br>]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="433" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA["锁车设置/回复信息列表"- Smart Identification]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T367">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="434" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T368">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="435" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T369">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="436" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="429" Source="Action1 [DownFile]" SourceLine="57" >
+<Disp><![CDATA[最新提交_查看锁车设置/回复信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="428" Source="Action1 [DownFile]" SourceLine="57" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="427" Source="Action1 [DownFile]" SourceLine="57" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T370">
+<Obj ><![CDATA[Excel列-机号-检查通过]]></Obj>
+<Details ><![CDATA[期望值：autotest 实际值：autotest]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="437" status="Passed" Source="Action1 [DownFile]" SourceLine="66" >
+<Disp><![CDATA[Excel列-机号-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T371">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<Step rID="T372">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<Step rID="T373">
+<Obj plainTxt="False" ><![CDATA[最新提交_查看锁车设置/回复信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<Step rID="T374">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="441" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T375">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="442" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T376">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="443" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="440" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[最新提交_查看锁车设置/回复信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="439" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="438" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T377">
+<Obj ><![CDATA[Excel列-信息发送时间-检查通过]]></Obj>
+<Details ><![CDATA[期望值：2014-8-14 8:47:38 实际值：2014-8-14 8:47:38]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:10]]></Time>
+<TimeTick>1407977290</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="444" status="Passed" Source="Action1 [DownFile]" SourceLine="66" >
+<Disp><![CDATA[Excel列-信息发送时间-检查通过]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T378">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<Step rID="T379">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<Step rID="T380">
+<Obj plainTxt="False" ><![CDATA[最新提交_查看锁车设置/回复信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<Step rID="T381">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="448" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T382">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="449" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T383">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="450" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="447" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[最新提交_查看锁车设置/回复信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="446" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="445" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T384">
+<Obj ><![CDATA[Excel列-日志日期-检查失败]]></Obj>
+<Details ><![CDATA[期望值：2014-08-13 实际值：2014-8-13 0:00:00]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="451" status="Failed" Source="Action1 [DownFile]" SourceLine="68" >
+<Disp><![CDATA[Excel列-日志日期-检查失败]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T385">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<Step rID="T386">
+<Obj plainTxt="False" ><![CDATA[主页_车辆信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Page]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<Step rID="T387">
+<Obj plainTxt="False" ><![CDATA[最新提交_查看锁车设置/回复信息]]></Obj>
+<Details plainTxt="False" ><![CDATA[Frame]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<Step rID="T388">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="455" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T389">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="456" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T390">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="457" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T391">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="458" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T392">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="459" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T393">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="460" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T394">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="461" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T395">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="462" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T396">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="463" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T397">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="464" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T398">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="465" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T399">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="466" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T400">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:11]]></Time>
+<TimeTick>1407977291</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="467" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T401">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="468" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T402">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="469" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T403">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="470" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T404">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="471" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T405">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="472" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T406">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="473" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T407">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="474" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T408">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="475" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T409">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="476" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T410">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="477" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T411">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="478" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T412">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="479" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T413">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="480" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T414">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="481" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T415">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="482" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T416">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:12]]></Time>
+<TimeTick>1407977292</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="483" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T417">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="484" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T418">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="485" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T419">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="486" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T420">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="487" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T421">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="488" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T422">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="489" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T423">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="490" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T424">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="491" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T425">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="492" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T426">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="493" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T427">
+<Obj plainTxt="False" ><![CDATA["锁车设置/回复信息列表":Function Call]]></Obj>
+<Details plainTxt="False" ><![CDATA[CellText]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:13]]></Time>
+<TimeTick>1407977293</TimeTick>
+<NodeArgs eType="General" icon="18" nRep="494" >
+<Disp><![CDATA["锁车设置/回复信息列表":Function Call]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="13" nRep="454" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[最新提交_查看锁车设置/回复信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="9" nRep="453" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[主页_车辆信息]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="452" Source="Action1 [DownFile]" SourceLine="63" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 8:48:06" eTime="2014-8-14 - 8:48:13" passed="3" failed="1" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="412" status="Failed" >
+<Disp><![CDATA[Action1 [DownFile] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Summary sTime="2014-8-14 - 8:47:47" eTime="2014-8-14 - 8:48:13" passed="22" failed="24" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="85" status="Failed" >
+<Disp><![CDATA[Action1 [Check_MsgQuery_Log] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Action rID="T428">
+<AName><![CDATA[Action1 [Logout]]]></AName>
+<Step rID="T429">
+<Obj plainTxt="False" ><![CDATA[住友]]></Obj>
+<Details plainTxt="False" ><![CDATA[Browser]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:14]]></Time>
+<TimeTick>1407977294</TimeTick>
+<Step rID="T430">
+<Obj plainTxt="False" ><![CDATA[住友.Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:14]]></Time>
+<TimeTick>1407977294</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="500" Source="Action1 [Logout]" SourceLine="2" >
+<Disp><![CDATA[住友.Sync]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T431">
+<Obj plainTxt="False" ><![CDATA[住友.Close All Tabs]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[2014-8-14 - 8:48:14]]></Time>
+<TimeTick>1407977294</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="501" Source="Action1 [Logout]" SourceLine="3" >
+<Disp><![CDATA[住友.Close All Tabs]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="8" nRep="499" Source="Action1 [Logout]" SourceLine="2" >
+<Disp><![CDATA[住友]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="2014-8-14 - 8:48:13" eTime="2014-8-14 - 8:48:19" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="5" nRep="497" >
+<Disp><![CDATA[Action1 [Logout] Summary]]></Disp>
+</NodeArgs>
+</Action>
+<Summary sTime="2014-8-14 - 8:47:30" eTime="2014-8-14 - 8:48:19" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="7" status="Failed" >
+<Disp><![CDATA[Action1 Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="6" status="Failed" >
+<Disp><![CDATA[Case4_2_VehiMsg_MsgQuery_Log Iteration 1 (Row 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<Summary sTime="2014-8-14 - 8:47:28" eTime="2014-8-14 - 8:48:19" passed="31" failed="27" warnings="0" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="3" status="Failed" >
+<Disp><![CDATA[Test Case4_2_VehiMsg_MsgQuery_Log Summary]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>

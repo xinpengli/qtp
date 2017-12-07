@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>锁车设置信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>提交时间</b></td><td><b>提交账户</b></td><td><b>立即锁</b></td><td><b>总工作时间锁</b></td><td><b>指定总工作时间</b></td><td><b>指定日期锁</b></td><td><b>指定时间</b></td><td><b>位置锁</b></td><td><b>半径</b></td><td><b>循环密码锁</b></td><td><b>循环密码锁时间</b></td><td><b>期数</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">2014-10-11 11:00:46</td><td style="vnd.ms-excel.numberformat:@">AutoProdtest</td><td style="vnd.ms-excel.numberformat:@">锁车</td><td style="vnd.ms-excel.numberformat:@">锁车</td><td style="vnd.ms-excel.numberformat:@">1</td><td style="vnd.ms-excel.numberformat:@">锁车</td><td style="vnd.ms-excel.numberformat:@">2014-10-11</td><td style="vnd.ms-excel.numberformat:@">锁车</td><td style="vnd.ms-excel.numberformat:@">10</td><td style="vnd.ms-excel.numberformat:@">锁车</td><td style="vnd.ms-excel.numberformat:@">2014-10-12</td><td style="vnd.ms-excel.numberformat:@">48</td> </tr>
+</table>
+</body>
+</html>

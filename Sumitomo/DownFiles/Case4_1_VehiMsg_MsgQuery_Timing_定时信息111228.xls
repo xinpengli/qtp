@@ -1,0 +1,29 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>定时信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>机号</b></td><td><b>信息发送时间</b></td><td><b>位置</b></td><td><b>发动机运转状况</b></td><td><b>发动机工作小时</b></td><td><b>燃油位</b></td><td><b>防盗设定状态</b></td><td><b>发动机启动/关闭</b></td><td><b>发动机启动/关闭时刻</b></td><td><b>锁车状态</b></td><td><b>当天发动机工作小时</b></td><td><b>当天耗油量</b></td><td><b>累计耗油量</b></td><td><b>液压油温</b></td><td><b>冷却水温</b></td><td><b>机械的电瓶电压</b></td><td><b>发电机的电压</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">autotest</td><td style="vnd.ms-excel.numberformat:@">2014-10-11 11:12:16</td><td style="vnd.ms-excel.numberformat:@">河北省石家庄市裕华区 黄河大道附近</td><td style="vnd.ms-excel.numberformat:@">关闭</td><td style="vnd.ms-excel.numberformat:@">3.33</td><td style="vnd.ms-excel.numberformat:@">2</td><td style="vnd.ms-excel.numberformat:@">解除中</td><td style="vnd.ms-excel.numberformat:@">关闭</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@">按“GPS天线防拆锁”锁车</td><td style="vnd.ms-excel.numberformat:@">1.67</td><td style="vnd.ms-excel.numberformat:@">20</td><td style="vnd.ms-excel.numberformat:@">25</td><td style="vnd.ms-excel.numberformat:@">0</td><td style="vnd.ms-excel.numberformat:@">80</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td> </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>锁车回复信息</x:Name>
+    <x:WorksheetOptions>
+      <x:Print>
+       <x:ValidPrinterInfo />
+      </x:Print>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml>
+<![endif]-->
+</head>
+<body>
+<table>
+ <tr>
+<td><b>信息发送时间</b></td><td><b>立即锁</b></td><td><b>总工作时间锁</b></td><td><b>工作时间</b></td><td><b>指定日期锁</b></td><td><b>指定日期</b></td><td><b>位置锁</b></td><td><b>半径</b></td><td><b>循环密码锁</b></td><td><b>循环密码锁锁时间</b></td><td><b>总工作时间</b></td><td><b>位置</b></td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">2014-10-11 10:56:48</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@">解车</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"> </td> </tr>
+ <tr>
+<td style="vnd.ms-excel.numberformat:@">2014-10-11 10:56:03</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@">锁车</td><td style="vnd.ms-excel.numberformat:@">10</td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"></td><td style="vnd.ms-excel.numberformat:@"> </td> </tr>
+</table>
+</body>
+</html>
